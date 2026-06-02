@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Send, CheckCircle2, Phone } from 'lucide-react';
+import { Mail, Send, CheckCircle2, Phone, AlertCircle } from 'lucide-react';
 
 const Github = ({ size = 24, ...props }) => (
   <svg
@@ -51,19 +51,33 @@ const Contact = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
     setStatus('sending');
-    // Simulate API request
-    setTimeout(() => {
-      setStatus('success');
-      setFormData({ name: '', email: '', message: '' });
-      
-      // Reset back to idle after 5s
-      setTimeout(() => setStatus('idle'), 5000);
-    }, 1500);
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        console.error('Error al enviar el correo:', data.error);
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error('Error de red:', error);
+      setStatus('error');
+    }
   };
 
   return (
@@ -121,6 +135,22 @@ const Contact = () => {
               <p className="success-message">
                 Muchas gracias por ponerte en contacto. Te responderé lo antes posible.
               </p>
+            </div>
+          ) : status === 'error' ? (
+            <div className="form-success-card text-center">
+              <AlertCircle size={48} className="success-icon" style={{ color: '#ff5f56', margin: '0 auto 20px' }} />
+              <h3 className="success-title" style={{ color: '#ff5f56' }}>¡Ups! Algo salió mal</h3>
+              <p className="success-message" style={{ marginBottom: '24px' }}>
+                No pudimos enviar tu mensaje a través del formulario. Por favor, inténtalo de nuevo o contáctame directamente a <a href="mailto:Thefilex07@gmail.com" className="text-cyan" style={{ textDecoration: 'underline' }}>Thefilex07@gmail.com</a>.
+              </p>
+              <button 
+                type="button" 
+                onClick={() => setStatus('idle')} 
+                className="btn btn-primary"
+                style={{ margin: '0 auto' }}
+              >
+                Volver a intentar
+              </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="contact-form">
