@@ -126,11 +126,8 @@ function App() {
             <span className="nav-index">04.</span> Contacto
           </button>
           <a 
-            href="#contact" 
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('contact');
-            }} 
+            href="/CV.pdf" 
+            download="CV_Sebastian_Vasquez.pdf"
             className="btn btn-outline btn-nav"
           >
             CV / Resumen
@@ -175,11 +172,8 @@ function App() {
             <span className="nav-index">04.</span> Contacto
           </button>
           <a 
-            href="#contact" 
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('contact');
-            }} 
+            href="/CV.pdf" 
+            download="CV_Sebastian_Vasquez.pdf"
             className="btn btn-primary mobile-cv-btn"
           >
             Descargar CV

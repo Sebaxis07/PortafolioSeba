@@ -98,6 +98,52 @@ const Projects = () => {
         'Control de niveles mínimos de stock con notificaciones de reabastecimiento.',
         'Autenticación robusta y seguridad mediante Tokens JWT y contraseñas encriptadas.'
       ]
+    },
+    {
+      title: 'Smart Financial Assistant (Monochrome Edition)',
+      category: 'Finanzas Personales / IA',
+      description: 'Plataforma web de gestión financiera diseñada para el control inteligente de ingresos, gastos y metas, implementando una arquitectura de roles (Cliente Principal y Supervisor), procesamiento de lenguaje natural y asesoramiento mediante inteligencia artificial.',
+      tech: ['React 18', 'Node.js', 'Express', 'MongoDB Atlas', 'Gemini 2.5 Flash', 'JWT', 'BcryptJS'],
+      role: 'Desarrollador Full-Stack Principal',
+      impact: 'Ingesta inteligente de transacciones con IA, visualización interactiva de la regla 50/30/20 y auditoría financiera remota.',
+      images: [
+        {
+          src: '/projects/InkFinance/login.png',
+          title: 'Acceso y Autenticación de Usuarios',
+          desc: 'Inicio de sesión seguro mediante tokens JWT y recuperación de contraseñas con código OTP de 6 dígitos autogenerado.'
+        },
+        {
+          src: '/projects/InkFinance/Principal.png',
+          title: 'Dashboard y Regla 50/30/20',
+          desc: 'Consolidación de balance general mensual, tasa de ahorro neto y barras de progreso de la regla de distribución 50/30/20.'
+        },
+        {
+          src: '/projects/InkFinance/Movimientos.png',
+          title: 'Registro de Transacciones con NLP',
+          desc: 'Formulario estructurado y procesamiento por lenguaje natural (NLP) en tiempo real, parseando texto a datos JSON con Gemini.'
+        },
+        {
+          src: '/projects/InkFinance/Metas.png',
+          title: 'Gestión de Metas de Ahorro',
+          desc: 'Configuración de objetivos de ahorro prioritarios con cálculo automatizado de la cuota mensual sugerida y control de avance.'
+        },
+        {
+          src: '/projects/InkFinance/IA.png',
+          title: 'Asesor Financiero IA y Roles',
+          desc: 'Consola de chat contextualizada con análisis directo de datos y control de accesos para supervisores autorizados.'
+        }
+      ],
+      github: 'https://github.com/Sebaxis07/inkfinance',
+      demo: 'https://inkfinance.vercel.app',
+      features: [
+        'Matriz de Roles y Permisos: Flujos diferenciados para Cliente Principal (gestión de capital) y Supervisor/Auditor (control externo).',
+        'Dashboard Dinámico 50/30/20: Gráficos circulares monocromáticos, alertas de límite excedido en Necesidades, Deseos y Ahorro.',
+        'Ingesta NLP en Tiempo Real: Motor heurístico local que previsualiza transacciones y API con Gemini 2.5 Flash para categorización exacta.',
+        'Asesor Financiero IA Contextualizado: Inyección segura de balance, categorías de gastos y metas del usuario en el prompt del sistema.',
+        'Consola de Supervisión Activa (Roster): Panel de auditoría de expedientes clientes vinculados con KPIs de cumplimiento de metas y libro mayor.',
+        'Herramientas de Auditoría y Control: Gatillo de escaneo de riesgos y simulación de envío de recomendaciones por correo electrónico.',
+        'Gestión de Sesión e Invitaciones: Flujo completo de recuperación de clave (OTP), y autorización o revocación inmediata de supervisores.'
+      ]
     }
   ];
 
